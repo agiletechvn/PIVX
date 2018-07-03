@@ -23,6 +23,8 @@ services:
     ports:
       - 51473:51473    
     tty: true    
+    volumes:
+      - ./data:/home/pivx/.pivx
     environment:
       PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/pivx-3.1.0/bin"
     command: /bin/bash
