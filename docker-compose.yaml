@@ -21,10 +21,25 @@ services:
     image: thanhtu/pivx
     container_name: pivx
     ports:
-      - 51473:51473    
+    # regtest is 51476
+      - 51476:51476
     tty: true    
     volumes:
       - ./data:/home/pivx/.pivx
+      - ./scripts:/scripts
+    working_dir: /scripts
     environment:
-      PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/pivx-3.1.0/bin"
+      PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/pivx-3.1.0/bin:/scripts"
     command: /bin/bash
+
+  # mn1:
+  #   image: thanhtu/pivx
+  #   container_name: mn1
+  #   ports:
+  #     - 51472:51472    
+  #   tty: true    
+  #   volumes:
+  #     - ./masternode/data1:/home/pivx/.pivx
+  #   environment:
+  #     PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/pivx-3.1.0/bin"
+  #   command: /bin/bash

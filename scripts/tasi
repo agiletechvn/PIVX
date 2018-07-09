@@ -1,0 +1,1 @@
+pivx-cli -regtest -gen -rpcuser=pivx -rpcpassword=123456 -rpcconnect=127.0.0.1 -datadir=/home/pivx/.pivx $@
