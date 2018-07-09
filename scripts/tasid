@@ -1,1 +1,1 @@
-pivxd -regtest -datadir=/home/pivx/.pivx $@
+pivxd $@

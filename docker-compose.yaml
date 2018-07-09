@@ -17,20 +17,48 @@ version: "3"
 
 services:
 
-  pivx:
-    image: thanhtu/pivx
-    container_name: pivx
+  pivx1:
+    # image: thanhtu/pivx
+    image: guggero/pivx
+    container_name: pivx1
     ports:
     # regtest is 51476
       - 51476:51476
     tty: true    
     volumes:
-      - ./data:/home/pivx/.pivx
+      - ./data/node1:/home/pivx/.pivx
       - ./scripts:/scripts
     working_dir: /scripts
     environment:
-      PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/pivx-3.1.0/bin:/scripts"
+      PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/pivx/bin:/scripts"
     command: /bin/bash
+
+  pivx2:
+    # image: thanhtu/pivx
+    image: guggero/pivx
+    container_name: pivx2
+    ports:
+    # regtest is 51476
+      - 51477:51476
+    tty: true    
+    volumes:
+      - ./data/node2:/home/pivx/.pivx
+      - ./scripts:/scripts
+    working_dir: /scripts
+    environment:
+      PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/pivx/bin:/scripts"
+    command: /bin/bash
+
+  # pivx-qt:
+  #   image: guggero/pivx
+  #   environment:
+  #     - DISPLAY=docker.for.mac.localhost:0
+  #   volumes:
+  #     - ./data/node2:/home/pivx/.pivx
+  #     - /tmp/.X11-unix:/tmp/.X11-unix
+  #   stdin_open: true
+  #   tty: true
+  #   command: /opt/pivx/bin/pivx-qt
 
   # mn1:
   #   image: thanhtu/pivx
