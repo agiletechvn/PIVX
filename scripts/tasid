@@ -1,1 +1,1 @@
-pivxd $@
+pivxd -listen -keypool=3 -debug -debug=net -logtimestamps -checkmempool=0 -regtest -datadir=/home/pivx/.pivx $@
